@@ -1,6 +1,6 @@
 import time
 
-from operator import Operator
+from my_operator import Operator
 from section import Section
 from utils import *
 

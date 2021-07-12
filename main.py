@@ -1,9 +1,19 @@
 import numpy as np
 from matplotlib import pyplot as plt
+import argparse
+import os
 
 from simulation import run_simulation
 
 CUSTOMER_COUNT = 10 ** 7
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument("--address", type=str, help="figures address", default='./')
+args = parser.parse_args()
+print(args.address)
+
+os.makedirs(args.address, exist_ok=True)
 
 print("Input: section_count, arrival_rate, tolerance_avg and service_rate")
 section_count, arrival_rate, tolerance_avg, service_rate = list(
@@ -109,7 +119,7 @@ else:
     plt.title('Q6')
     plt.ylabel('mean queue len')
     plt.xlabel('iteration')
-    plt.savefig('Q6.pdf')
+    plt.savefig(args.address + 'Q6.pdf')
     plt.clf()
 
     print("No queue will exist if:")
@@ -145,7 +155,7 @@ try:
     plt.hist(response_time_0, bins=max(
         response_time_0), color=colors['p0'])
     plt.title("Response time frequency of p0 customers")
-    plt.savefig('Q7.1.1.pdf')
+    plt.savefig(args.address + 'Q7.1.1.pdf')
     plt.clf()
 except Exception:
     print("There is no response list for t1 customers")
@@ -154,7 +164,7 @@ try:
     plt.hist(response_time_1, bins=max(
         response_time_1), color=colors['p0'])
     plt.title("Response time frequency of p1 customers")
-    plt.savefig('Q7.1.2.pdf')
+    plt.savefig(args.address + 'Q7.1.2.pdf')
     plt.clf()
 except Exception:
     print("There is no response list for p2 customers")
@@ -163,7 +173,7 @@ try:
     plt.hist(response_time_2, bins=max(
         response_time_2), color=colors['p2'])
     plt.title("Response time frequency of p2 customers")
-    plt.savefig('Q7.1.3.pdf')
+    plt.savefig(args.address + 'Q7.1.3.pdf')
     plt.clf()
 except Exception:
     print("There is no response list for p2 customers")
@@ -172,7 +182,7 @@ try:
     plt.hist(response_time_3, bins=max(
         response_time_3), color=colors['p3'])
     plt.title("Response time frequency of p3 customers")
-    plt.savefig('Q7.1.4.pdf')
+    plt.savefig(args.address + 'Q7.1.4.pdf')
     plt.clf()
 except Exception:
     print("There is no response list for p3 customers")
@@ -181,7 +191,7 @@ try:
     plt.hist(response_time_4, bins=max(
         response_time_4), color=colors['p4'])
     plt.title("Response time frequency of p4 customers")
-    plt.savefig('Q7.1.5.pdf')
+    plt.savefig(args.address + 'Q7.1.5.pdf')
     plt.clf()
 except Exception:
     print("There is no response list for p4 customers")
@@ -193,7 +203,7 @@ try:
     plt.hist(waiting_time_0, bins=max(
         waiting_time_0), color=colors['p0'])
     plt.title("Waiting time frequency of p0 customers")
-    plt.savefig('Q7.2.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.2.' + str(counter) + '.pdf')
     coutner += 1
     plt.clf()
 except Exception:
@@ -203,7 +213,7 @@ try:
     plt.hist(waiting_time_1, bins=max(
         waiting_time_1), color=colors['p1'])
     plt.title("Waiting time frequency of p1 customers")
-    plt.savefig('Q7.2.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.2.' + str(counter) + '.pdf')
     coutner += 1
     plt.clf()
 except Exception:
@@ -214,7 +224,7 @@ try:
     plt.hist(waiting_time_2, bins=max(
         waiting_time_2), color=colors['p2'])
     plt.title("Waiting time frequency of p2 customers")
-    plt.savefig('Q7.2.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.2.' + str(counter) + '.pdf')
     coutner += 1
     plt.clf()
 except Exception:
@@ -224,7 +234,7 @@ try:
     plt.hist(waiting_time_3, bins=max(
         waiting_time_3), color=colors['p3'])
     plt.title("Waiting time frequency of p3 customers")
-    plt.savefig('Q7.2.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.2.' + str(counter) + '.pdf')
     coutner += 1
     plt.clf()
 except Exception:
@@ -235,7 +245,7 @@ try:
     plt.hist(waiting_time_4, bins=max(
         waiting_time_4), color=colors['p4'])
     plt.title("Waiting time frequency of p4 customers")
-    plt.savefig('Q7.2.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.2.' + str(counter) + '.pdf')
     coutner += 1
     plt.clf()
 except Exception:
@@ -246,7 +256,7 @@ counter = 1
 try:
     plt.hist(spent_time_0, bins=max(spent_time_0), color=colors['p0'])
     plt.title("Spent time frequency of p0 customers")
-    plt.savefig('Q7.3.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.3.' + str(counter) + '.pdf')
     coutner += 1
     plt.clf()
 except Exception:
@@ -255,7 +265,7 @@ except Exception:
 try:
     plt.hist(spent_time_1, bins=max(spent_time_1), color=colors['p1'])
     plt.title("Spent time frequency of p1 customers")
-    plt.savefig('Q7.3.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.3.' + str(counter) + '.pdf')
     coutner += 1
     plt.clf()
 except Exception:
@@ -264,7 +274,7 @@ except Exception:
 try:
     plt.hist(spent_time_2, bins=max(spent_time_2), color=colors['p2'])
     plt.title("Spent time frequency of p2 customers")
-    plt.savefig('Q7.3.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.3.' + str(counter) + '.pdf')
     coutner += 1
     plt.clf()
 except Exception:
@@ -274,7 +284,7 @@ except Exception:
 try:
     plt.hist(spent_time_3, bins=max(spent_time_3), color=colors['p3'])
     plt.title("Spent time frequency of p3 customers")
-    plt.savefig('Q7.3.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.3.' + str(counter) + '.pdf')
     coutner += 1
     plt.clf()
 except Exception:
@@ -283,7 +293,7 @@ except Exception:
 try:
     plt.hist(spent_time_4, bins=max(spent_time_4), color=colors['p4'])
     plt.title("Spent time frequency of p4 customers")
-    plt.savefig('Q7.3.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.3.' + str(counter) + '.pdf')
     coutner += 1
     plt.clf()
 except Exception:
@@ -327,7 +337,7 @@ try:
     plt.hist(presence_times_0, bins=max(presence_times_0),
              color=colors['p0'], histtype='step')
     plt.title("Presence time of p0 customers")
-    plt.savefig('Q7.4.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.4.' + str(counter) + '.pdf')
     coutner += 1
     plt.clf()
 except Exception:
@@ -337,7 +347,7 @@ try:
     plt.hist(presence_times_1, bins=max(presence_times_1),
              color=colors['p1'], histtype='step')
     plt.title("Presence time of p1 customers")
-    plt.savefig('Q7.4.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.4.' + str(counter) + '.pdf')
     coutner += 1
     plt.clf()
 except Exception:
@@ -347,7 +357,7 @@ try:
     plt.hist(presence_times_2, bins=max(presence_times_2),
              color=colors['p2'], histtype='step')
     plt.title("Presence time of p2 customers")
-    plt.savefig('Q7.4.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.4.' + str(counter) + '.pdf')
     coutner += 1
     plt.clf()
 except Exception:
@@ -357,7 +367,7 @@ try:
     plt.hist(presence_times_3, bins=max(presence_times_3),
              color=colors['p3'], histtype='step')
     plt.title("Presence time of p3 customers")
-    plt.savefig('Q7.4.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.4.' + str(counter) + '.pdf')
     coutner += 1
     plt.clf()
 except Exception:
@@ -367,7 +377,7 @@ try:
     plt.hist(presence_times_4, bins=max(presence_times_4),
              color=colors['p4'], histtype='step')
     plt.title("Presence time of p4 customers")
-    plt.savefig('Q7.4.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.4.' + str(counter) + '.pdf')
     coutner += 1
     plt.clf()
 except Exception:
@@ -377,7 +387,7 @@ try:
     plt.hist(presence_times, bins=max(presence_times),
              color=colors['all'], histtype='step')
     plt.title("Presence time of all customers")
-    plt.savefig('Q7.4.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.4.' + str(counter) + '.pdf')
     coutner += 1
     plt.clf()
 except Exception:
@@ -392,7 +402,7 @@ plt.plot(operator.queue_lens["p0"], label='t1', color=colors['p0'])
 plt.title('Q7.5')
 plt.ylabel('Queue len section of p0 customers')
 plt.xlabel('time')
-plt.savefig('Q7.5.' + str(counter) + '.pdf')
+plt.savefig(args.address + 'Q7.5.' + str(counter) + '.pdf')
 counter += 1
 plt.clf()
 
@@ -401,7 +411,7 @@ plt.plot(operator.queue_lens["p1"], label='t1', color=colors['p1'])
 plt.title('Q7.5')
 plt.ylabel('Queue len section of p1 customers')
 plt.xlabel('time')
-plt.savefig('Q7.5.' + str(counter) + '.pdf')
+plt.savefig(args.address + 'Q7.5.' + str(counter) + '.pdf')
 counter += 1
 plt.clf()
 
@@ -410,7 +420,7 @@ plt.plot(operator.queue_lens["p2"], label='t1', color=colors['p2'])
 plt.title('Q7.5')
 plt.ylabel('Queue len section of p2 customers')
 plt.xlabel('time')
-plt.savefig('Q7.5.' + str(counter) + '.pdf')
+plt.savefig(args.address + 'Q7.5.' + str(counter) + '.pdf')
 counter += 1
 plt.clf()
 
@@ -419,7 +429,7 @@ plt.plot(operator.queue_lens["p3"], label='t1', color=colors['p3'])
 plt.title('Q7.5')
 plt.ylabel('Queue len section of p3 customers')
 plt.xlabel('time')
-plt.savefig('Q7.5.' + str(counter) + '.pdf')
+plt.savefig(args.address + 'Q7.5.' + str(counter) + '.pdf')
 counter += 1
 plt.clf()
 
@@ -427,7 +437,7 @@ plt.plot(operator.queue_lens["p4"], label='t1', color=colors['p4'])
 plt.title('Q7.5')
 plt.ylabel('Queue len section of p4 customers')
 plt.xlabel('time')
-plt.savefig('Q7.5.' + str(counter) + '.pdf')
+plt.savefig(args.address + 'Q7.5.' + str(counter) + '.pdf')
 counter += 1
 plt.clf()
 
@@ -435,7 +445,7 @@ plt.plot(operator.queue_len_log, label='all', color=colors['all'])
 plt.title('Q7.5')
 plt.ylabel('Queue len section of all customers')
 plt.xlabel('time')
-plt.savefig('Q7.5.' + str(counter) + '.pdf')
+plt.savefig(args.address + 'Q7.5.' + str(counter) + '.pdf')
 counter += 1
 plt.clf()
 
@@ -448,7 +458,7 @@ for i in range(len(sections)):
     plt.title('Q7.5')
     plt.ylabel('Queue len of p0 customers of section' + str(i+1))
     plt.xlabel('time')
-    plt.savefig('Q7.5.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.5.' + str(counter) + '.pdf')
     counter += 1
     plt.clf()
 
@@ -456,7 +466,7 @@ for i in range(len(sections)):
     plt.title('Q7.5')
     plt.ylabel('Queue len of p1 customers of section' + str(i+1))
     plt.xlabel('time')
-    plt.savefig('Q7.5.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.5.' + str(counter) + '.pdf')
     counter += 1
     plt.clf()
 
@@ -464,7 +474,7 @@ for i in range(len(sections)):
     plt.title('Q7.5')
     plt.ylabel('Queue len of p2 customers of section' + str(i+1))
     plt.xlabel('time')
-    plt.savefig('Q7.5.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.5.' + str(counter) + '.pdf')
     counter += 1
     plt.clf()
 
@@ -472,7 +482,7 @@ for i in range(len(sections)):
     plt.title('Q7.5')
     plt.ylabel('Queue len of p3 customers of section' + str(i+1))
     plt.xlabel('time')
-    plt.savefig('Q7.5.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.5.' + str(counter) + '.pdf')
     counter += 1
     plt.clf()
 
@@ -480,7 +490,7 @@ for i in range(len(sections)):
     plt.title('Q7.5')
     plt.ylabel('Queue len of t1 customers of section' + str(i+1))
     plt.xlabel('time')
-    plt.savefig('Q7.5.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.5.' + str(counter) + '.pdf')
     counter += 1
     plt.clf()
 
@@ -488,7 +498,7 @@ for i in range(len(sections)):
     plt.title('Q7.5')
     plt.ylabel('Queue len of all customers of section' + str(i+1))
     plt.xlabel('time')
-    plt.savefig('Q7.5.' + str(counter) + '.pdf')
+    plt.savefig(args.address + 'Q7.5.' + str(counter) + '.pdf')
     counter += 1
     plt.clf()
 
@@ -496,6 +506,6 @@ plt.plot(overall_queue, label='all', color=colors['all'])
 plt.title('Q7.5')
 plt.ylabel('Queue len of all customers of sections & section')
 plt.xlabel('time')
-plt.savefig('Q7.5.' + str(counter) + '.pdf')
+plt.savefig(args.address + 'Q7.5.' + str(counter) + '.pdf')
 counter += 1
 plt.clf()
